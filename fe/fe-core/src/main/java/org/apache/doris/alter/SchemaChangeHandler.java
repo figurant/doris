@@ -683,6 +683,8 @@ public class SchemaChangeHandler extends AlterHandler {
              */
             modColumn.setName(SHADOW_NAME_PREFIX + modColumn.getName());
         }
+        LOG.info("modify column {} ", modColumn);
+        return lightSchemaChange;
     }
 
     private void processReorderColumn(ReorderColumnsClause alterClause, Table externalTable, List<Column> newSchema)
