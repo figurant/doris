@@ -2285,7 +2285,7 @@ Status SchemaChangeHandler::_parse_request(const SchemaChangeParams& sc_params,
          i < new_schema_size; ++i) {
         const TabletColumn& new_column = new_tablet->tablet_schema()->column(i);
         const std::string& column_name = new_column.name();
-        ColumnMapping* column_mapping = changer->get_mutable_column_mapping(i);
+        ColumnMapping* column_mapping = rb_changer->get_mutable_column_mapping(i);
         column_mapping->new_column = &new_column;
 
         if (materialized_function_map.find(column_name) != materialized_function_map.end()) {
